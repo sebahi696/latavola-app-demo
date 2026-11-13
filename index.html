@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>La Tavola App Demo</title>
+<style>
+  :root { --brand:#7A1F1F; --accent:#E8B04B; --bg:#F3EFE9; --text:#1a1a1a; --muted:#6b6b6b; --card:#fff; --line:#e6e0d8; }
+  @media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) { --bg:#171412; --text:#f2ede6; --muted:#a39b91; --card:#221e1b; --line:#3a332e; } }
+  :root[data-theme="dark"] { --bg:#171412; --text:#f2ede6; --muted:#a39b91; --card:#221e1b; --line:#3a332e; }
+  * { box-sizing:border-box; }
+  body { margin:0; min-height:100%; background:var(--bg); color:var(--text); font-family: -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; }
+  header { background:var(--brand); color:#fff; padding-block:14px; padding-left:max(16px, env(safe-area-inset-left, 0px)); padding-right:max(16px, env(safe-area-inset-right, 0px)); display:flex; align-items:center; gap:12px; flex-wrap:wrap; }
+  header h1 { font-size:18px; margin:0; font-weight:800; }
+  header .tag { font-size:12px; background:rgba(255,255,255,.18); padding:3px 10px; border-radius:999px; }
+  main { max-width:1100px; margin:0 auto; padding-block:16px; padding-left:max(16px, env(safe-area-inset-left, 0px)); padding-right:max(16px, env(safe-area-inset-right, 0px)); display:grid; gap:20px; grid-template-columns: 1fr; }
+  @media (min-width: 900px) { main { grid-template-columns: 430px 1fr; align-items:start; } }
+  .phone { width:390px; max-width:100%; height:800px; margin:0 auto; border:12px solid #1b1b1b; border-radius:44px; overflow:hidden; background:#000; box-shadow:0 20px 50px rgba(0,0,0,.35); position:relative; }
+  .phone iframe { width:100%; height:100%; border:0; background:#fff; }
+  .notch { position:absolute; top:0; left:50%; transform:translateX(-50%); width:120px; height:24px; background:#1b1b1b; border-radius:0 0 16px 16px; z-index:2; }
+  .card { background:var(--card); border:1px solid var(--line); border-radius:16px; padding:16px; margin-bottom:14px; }
+  .card h2 { margin:0 0 8px; font-size:17px; }
+  .card p, .card li { color:var(--muted); font-size:14px; line-height:1.5; margin:4px 0; }
+  .btn { display:inline-block; background:var(--brand); color:#fff; text-decoration:none; font-weight:700; padding:12px 18px; border-radius:12px; margin:6px 8px 6px 0; }
+  .btn.light { background:transparent; color:var(--brand); border:2px solid var(--brand); }
+  code { background:rgba(122,31,31,.08); padding:1px 6px; border-radius:6px; }
+  .steps li { margin:6px 0; color:var(--text); }
+</style>
+</head>
+<body>
+
+<header><h1>La Tavola Beirut - ordering app</h1><span class="tag">demo - no real orders</span></header>
+<main>
+  <div>
+    <div class="phone"><div class="notch"></div><iframe id="phone" src="./app/" title="La Tavola app"></iframe></div>
+    <p style="text-align:center;color:var(--muted);font-size:13px">Customer app (web build of the native app). <a href="./app/" target="_blank" style="color:var(--brand)">Open full screen</a></p>
+  </div>
+  <div>
+    <div class="card">
+      <h2>Try the full flow</h2>
+      <ol class="steps">
+        <li>In the phone: add items (choose the required options), open <b>Cart</b> → <b>Checkout</b>, pick <b>Pickup</b>, enter a name and phone, <b>Place order</b>.</li>
+        <li>Open the <b>operator panel</b> below in a new tab (restaurant <code>latavola</code>, any email, password <code>demo</code>), tap <b>Start shift</b> — the new order rings. Open it, accept with an ETA, move it to Preparing → Ready → Delivered.</li>
+        <li>Back in the phone the order status updates live; after delivery the points are earned.</li>
+      </ol>
+      <a class="btn" href="./operator/" target="_blank">Open operator panel</a>
+      <a class="btn light" href="#" onclick="localStorage.removeItem('latavola-demo-v1');localStorage.removeItem('token');localStorage.removeItem('cart');document.getElementById('phone').src='./app/?r='+Date.now();return false;">Reset demo data</a>
+    </div>
+    <div class="card">
+      <h2>Loyalty and delivery</h2>
+      <p>Sign in from <b>Profile</b> or <b>Rewards</b> with any phone number — the demo OTP code is <code>123456</code>. Points: 1 per $1, worth $0.07 each, usable at checkout (max 50% of the order). Coupon <code>WELCOME10</code> gives 10% off.</p>
+      <p>Delivery: add an address from Checkout (pick an area such as Hamra, Verdun, Salim Salam) and the fee is applied. The live app uses GPS to find the area automatically.</p>
+    </div>
+    <div class="card">
+      <h2>What the real version adds</h2>
+      <p>Native Android/iOS app from the stores · push notifications on every status change · WhatsApp OTP · the operator panel installed on the cashier's phone with ring + notifications · real delivery areas from the QR Menu · open/closed, busy mode, areas on/off, daily report, staff accounts.</p>
+    </div>
+  </div>
+</main>
+
+</body>
+</html>

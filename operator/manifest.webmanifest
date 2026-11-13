@@ -1,0 +1,14 @@
+{
+  "name": "Orders - Operator",
+  "short_name": "Orders",
+  "start_url": "/orderapp/operator/",
+  "scope": "/orderapp/operator/",
+  "display": "standalone",
+  "orientation": "any",
+  "background_color": "#f5f5f5",
+  "theme_color": "#7A1F1F",
+  "icons": [
+    { "src": "/orderapp/operator/icon-192.png", "sizes": "192x192", "type": "image/png" },
+    { "src": "/orderapp/operator/icon-512.png", "sizes": "512x512", "type": "image/png", "purpose": "any maskable" }
+  ]
+}
