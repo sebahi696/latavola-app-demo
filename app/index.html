@@ -2,36 +2,30 @@
 <html lang="en">
   <head>
     <meta charset="utf-8" />
-    <meta httpEquiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover, shrink-to-fit=no" />
+    <meta name="theme-color" content="#4E1212" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
     <title>La Tavola Beirut</title>
-    <!-- The `react-native-web` recommended style reset: https://necolas.github.io/react-native-web/docs/setup/#root-element -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;9..144,700&family=Manrope:wght@500;600;700;800&display=swap" />
     <style id="expo-reset">
-      /* These styles make the body full-height */
-      html,
-      body {
-        height: 100%;
+      html, body { height: 100%; }
+      body { overflow: hidden; margin: 0; background: #3b1010; font-family: 'Manrope', system-ui, sans-serif; }
+      #root { display: flex; height: 100%; flex: 1; }
+      /* Desktop: present the app as a phone-sized column instead of stretching across the screen */
+      @media (min-width: 600px) {
+        body { background: radial-gradient(1200px 700px at 50% -10%, #6a1c1c 0%, #2a0d0d 60%, #1a0909 100%); }
+        #root { max-width: 430px; margin: 0 auto; border-left: 1px solid rgba(255,255,255,0.08); border-right: 1px solid rgba(255,255,255,0.08); box-shadow: 0 0 80px rgba(0,0,0,0.5); }
       }
-      /* These styles disable body scrolling if you are using <ScrollView> */
-      body {
-        overflow: hidden;
-      }
-      /* These styles make the root element full-height */
-      #root {
-        display: flex;
-        height: 100%;
-        flex: 1;
-      }
+      input, textarea { font-family: inherit; }
+      ::-webkit-scrollbar { width: 0; height: 0; }
     </style>
   </head>
-
   <body>
-    <!-- Use static rendering with Expo Router to support running without JavaScript. -->
-    <noscript>
-      You need to enable JavaScript to run this app.
-    </noscript>
-    <!-- The root element for your Expo app. -->
+    <noscript>You need to enable JavaScript to run this app.</noscript>
     <div id="root"></div>
-  <script src="/latavola-app-demo/app/_expo/static/js/web/entry-189f0c983caac48158bfe5f657c8288c.js" defer></script>
+  <script src="/latavola-app-demo/app/_expo/static/js/web/entry-fa3a11234d696b8b2d0a5c108e570515.js" defer></script>
 </body>
 </html>
